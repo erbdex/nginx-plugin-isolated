@@ -11,7 +11,7 @@
  **/
 
 
-static char *url_text = "http://localhost/k/nginx_status";
+static char *url_text = "http://localhost:8511/i/nginx_status";
 //static char *user        = NULL;
 //static char *pass        = NULL;
 //static char *verify_peer = NULL;
