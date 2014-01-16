@@ -9,14 +9,13 @@ static char *url_text = "http://localhost/k/nginx_status";
 //static char *verify_peer = NULL;
 //static char *verify_host = NULL;
 //static char *cacert      = NULL;
-static char *http_header = "cloudmagic.com";
+static char *host_header = "cloudmagic.com";
 
 // http://localhost/k/nginx_status -H "HOST: cloudmagic.com"
 
 static CURL *curl = NULL;
 
 int main() {
-    printf("Init\n");
     char header_text[1024];
     char total_text[1024];
     struct curl_slist *curl_list = NULL;
@@ -30,15 +29,18 @@ int main() {
         return (-1);
     }
 
-    printf("\nHttpHeader: %s has length %d.\n", http_header, strlen(http_header));
-    printf("Init\n");
-
-    strcpy(header_text, " -H \"");
-    strncat(header_text, http_header, strlen(http_header));
-    strcat(header_text, "\"");
+    char flag_text = " -H ";
+    char quote_text = "\"";
+    
+    strncat(header_text, flag_text, strlen(flag_text));
+    
+    strncat(header_text, quote_text, strlen(quote_text));
+    strncat(header_text, host_header, strlen(host_header));
+    strncat(header_text, quote_text, strlen(quote_text));
 
     strncat(total_text, url_text, strlen(url_text));
     strncat(total_text, header_text, strlen(header_text));
+    
     printf("\n%s\n", total_text);
 
     //    curl_list = curl_slist_append(curl_list, header_text);
