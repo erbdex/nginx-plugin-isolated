@@ -29,14 +29,26 @@ int main() {
         return (-1);
     }
 
-    char flag_text = " -H ";
-    char quote_text = "\"";
+    static char *flag_text = " -H ";
+    static char *quote_text = "\"";
     
+    printf("\n>%s<\n", header_text);
     strncat(header_text, flag_text, strlen(flag_text));
     
+    printf("\n>%s<\n", header_text);
     strncat(header_text, quote_text, strlen(quote_text));
+    printf("\n>%s<\n", header_text);
+    
+    printf("\n>%s<\n", header_text);
     strncat(header_text, host_header, strlen(host_header));
+    
+    printf("\n>%s<\n", header_text);
     strncat(header_text, quote_text, strlen(quote_text));
+    printf("\n>%s<\n", header_text);
+    
+    exit(1);
+    printf("\n>%s<\n", url_text);
+    printf("\n>%s<\n", total_text);
 
     strncat(total_text, url_text, strlen(url_text));
     strncat(total_text, header_text, strlen(header_text));
