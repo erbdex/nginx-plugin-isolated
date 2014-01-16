@@ -32,28 +32,19 @@ int main() {
     static char *flag_text = " -H ";
     static char *quote_text = "\"";
 
-//    printf("\n>%s<\n", header_text);
     strncat(header_text, flag_text, strlen(flag_text));
-
-//    printf("\n>%s<\n", header_text);
     strncat(header_text, quote_text, strlen(quote_text));
-//    printf("\n>%s<\n", header_text);
-
-//    printf("\n>%s<\n", header_text);
     strncat(header_text, host_header, strlen(host_header));
-
-//    printf("\n>%s<\n", header_text);
     strncat(header_text, quote_text, strlen(quote_text));
-//    printf("\n>%s<\n", header_text);
 
     printf("\n>%s<\n", url_text);
+    printf("\n>%s<\n", header_text);
     strncat(total_text, url_text, strlen(url_text));
     printf("\n>%s<\n", total_text);
 
-    exit(1);
     
-    strncat(total_text, &header_text, strlen(header_text));
-    strcat(total_text, "\n");
+    strncat(total_text, header_text, strlen(header_text));
+    printf("\n>%s<\n", header_text);
     printf("\n%s\n", total_text);
 
     //    curl_list = curl_slist_append(curl_list, header_text);
